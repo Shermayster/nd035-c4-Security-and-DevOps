@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.SecureRandom;
+
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
@@ -47,7 +49,12 @@ public class UserController {
 			//		createUserRequest.getUsername());
 			return ResponseEntity.badRequest().build();
 		}
-		user.setPassword(bCryptPasswordEncoder.encode(createUserRequest.getPassword()));
+
+		SecureRandom random = new SecureRandom();
+		byte[] salt = new byte[16];
+		random.nextBytes(salt);
+		user.setSalt(random);
+		user.setPassword(bCryptPasswordEncoder.encode(createUserRequest.getPassword() + random));
 		userRepository.save(user);
 		return ResponseEntity.ok(user);
 	}

@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
-
+import java.security.SecureRandom;
 
 @Entity
 @Table(name = "user")
@@ -22,6 +22,9 @@ public class User {
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	@Column(nullable = false)
 	private String password;
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+	@Column(nullable = false)
+	private SecureRandom salt;
 	public String getPassword(){
 		return password;
 	}
@@ -57,7 +60,14 @@ public class User {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	
-	
-	
+
+	public SecureRandom getSalt() {
+		return salt;
+	}
+
+	public void setSalt(SecureRandom salt) {
+		this.salt = salt;
+	}
+
+
 }
