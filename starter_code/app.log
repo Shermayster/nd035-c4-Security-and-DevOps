@@ -367,3 +367,5 @@ org.springframework.security.authentication.BadCredentialsException: Bad credent
 2021-04-17 02:45:19,590 DEBUG com.example.demo.security.JWTAuthenticationFilter [http-nio-8080-exec-1] Updated SecurityContextHolder to contain null Authentication
 2021-04-17 02:45:19,590 DEBUG com.example.demo.security.JWTAuthenticationFilter [http-nio-8080-exec-1] Delegating to authentication failure handler org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler@5714879c
 2021-04-17 02:45:22,026 DEBUG com.example.demo.security.JWTAuthenticationFilter [http-nio-8080-exec-2] Request is to process authentication
+2021-04-17 02:50:06,018 INFO com.zaxxer.hikari.HikariDataSource [Thread-3] HikariPool-1 - Shutdown initiated...
+2021-04-17 02:50:06,019 INFO com.zaxxer.hikari.HikariDataSource [Thread-3] HikariPool-1 - Shutdown completed.
